@@ -133,17 +133,11 @@ module Isucon4
         ips = []
         threshold = config[:ip_ban_threshold]
 
-        not_succeeded = db.xquery('SELECT ip FROM (SELECT ip, MAX(succeeded) as max_succeeded, COUNT(1) as cnt FROM login_log GROUP BY ip) AS t0 WHERE t0.max_succeeded = 0 AND t0.cnt >= ?', threshold)
+        memory[:logs].group_by { |l| l[:ip] }.each do |ip, logs|
+          count = 0
+          logs.reverse.each { |l| l[:succeeded] ? (c += 1) : break }
 
-        ips.concat not_succeeded.each.map { |r| r['ip'] }
-
-        last_succeeds = db.xquery('SELECT ip, MAX(id) AS last_login_id FROM login_log WHERE succeeded = 1 GROUP by ip')
-
-        last_succeeds.each do |row|
-          count = db.xquery('SELECT COUNT(1) AS cnt FROM login_log WHERE ip = ? AND ? < id', row['ip'], row['last_login_id']).first['cnt']
-          if threshold <= count
-            ips << row['ip']
-          end
+          ips << ip if threshold <= count
         end
 
         ips
@@ -153,14 +147,10 @@ module Isucon4
         user_ids = []
         threshold = config[:user_lock_threshold]
 
-        not_succeeded = db.xquery('SELECT user_id, login FROM (SELECT user_id, login, MAX(succeeded) as max_succeeded, COUNT(1) as cnt FROM login_log GROUP BY user_id) AS t0 WHERE t0.user_id IS NOT NULL AND t0.max_succeeded = 0 AND t0.cnt >= ?', threshold)
+        memory[:logs].group_by { |l| l[:user_id] }.each do |user_id, logs|
+          count = 0
+          logs.reverse.each { |l| l[:succeeded] ? (c += 1) : break }
 
-        user_ids.concat not_succeeded.each.map { |r| r['login'] }
-
-        last_succeeds = db.xquery('SELECT user_id, login, MAX(id) AS last_login_id FROM login_log WHERE user_id IS NOT NULL AND succeeded = 1 GROUP BY user_id')
-
-        last_succeeds.each do |row|
-          count = db.xquery('SELECT COUNT(1) AS cnt FROM login_log WHERE user_id = ? AND ? < id', row['user_id'], row['last_login_id']).first['cnt']
           if threshold <= count
             user_ids << row['login']
           end
