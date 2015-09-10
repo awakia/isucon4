@@ -1,3 +1,0 @@
-package TestLib;
-
-1;
