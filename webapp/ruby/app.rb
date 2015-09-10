@@ -3,6 +3,17 @@ require 'digest/sha2'
 require 'mysql2-cs-bind'
 require 'rack-flash'
 require 'json'
+require 'csv'
+
+def users_from_tsv
+  CSV.read("../../sql/dummy_users.tsv", "r", col_sep: "\t").map do |row|
+    { user_id: row[0],
+      login: row[1],
+      password_hash: Digest::SHA256.hexdigest("#{row[2]}:#{row[3]}"),
+      salt: row[3]
+    }
+  end
+end
 
 module Isucon4
   class App < Sinatra::Base
