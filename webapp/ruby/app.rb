@@ -125,7 +125,7 @@ module Isucon4
       def last_login
         return nil unless current_user
 
-        db.xquery('SELECT * FROM login_log WHERE succeeded = 1 AND user_id = ? ORDER BY id DESC LIMIT 2', current_user['id']).each.last
+        memory[:logs].select { |l| (l[:user_id].to_i == current_user[:user_id].to_i) && l[:succeeded] }.last
       end
 
       def banned_ips
@@ -175,8 +175,9 @@ module Isucon4
 
     post '/login' do
       user, err = attempt_login(params[:login], params[:password])
+
       if user
-        session[:user_id] = user['id']
+        session[:user_id] = user[:user_id]
         redirect '/mypage'
       else
         case err
