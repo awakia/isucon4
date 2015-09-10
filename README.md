@@ -10,3 +10,8 @@ $ mkdir -p config/etc
 $ cd config/etc
 $ scp isucon4:/etc/my.cnf .
 ```
+
+## Service Restart Command
+```
+ $ sudo supervisorctl restart isucon_ruby
+```
