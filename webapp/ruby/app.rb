@@ -63,15 +63,25 @@ module Isucon4
 
       def user_locked?(user)
         return nil unless user
-        log = db.xquery("SELECT COUNT(1) AS failures FROM login_log WHERE user_id = ? AND id > IFNULL((select id from login_log where user_id = ? AND succeeded = 1 ORDER BY id DESC LIMIT 1), 0);", user['id'], user['id']).first
+        filtered_logs = memory[:logs].select { |log| log[:user_id] == user[:user_id] }
+        count = 0
+        filtered_logs.reverse.each do |log|
+          break if log.last
+          count += 1
+        end
 
-        config[:user_lock_threshold] <= log['failures']
+        config[:user_lock_threshold] <= count
       end
 
       def ip_banned?
-        log = db.xquery("SELECT COUNT(1) AS failures FROM login_log WHERE ip = ? AND id > IFNULL((select id from login_log where ip = ? AND succeeded = 1 ORDER BY id DESC LIMIT 1), 0);", request.ip, request.ip).first
+        filtered_logs = memory[:logs].select { |log| log[:ip] == request.ip }
+        count = 0
+        filtered_logs.reverse.each do |log|
+          break if log.last
+          count += 1
+        end
 
-        config[:ip_ban_threshold] <= log['failures']
+        config[:ip_ban_threshold] <= count
       end
 
       def attempt_login(login, password)
