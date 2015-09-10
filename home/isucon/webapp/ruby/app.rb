@@ -66,7 +66,7 @@ module Isucon4
         filtered_logs = memory[:logs].select { |log| log[:user_id] == user[:user_id] }
         count = 0
         filtered_logs.reverse.each do |log|
-          break if log.last
+          break if log[:succeeded]
           count += 1
         end
 
@@ -77,7 +77,7 @@ module Isucon4
         filtered_logs = memory[:logs].select { |log| log[:ip] == request.ip }
         count = 0
         filtered_logs.reverse.each do |log|
-          break if log.last
+          break if log[:succeeded]
           count += 1
         end
 
@@ -134,7 +134,7 @@ module Isucon4
 
         memory[:logs].group_by { |l| l[:ip] }.each do |ip, logs|
           count = 0
-          logs.reverse.each { |l| l[:succeeded] ? (c += 1) : break }
+          logs.reverse.each { |l| l[:succeeded] ? break : (count += 1) }
 
           ips << ip if threshold <= count
         end
@@ -148,11 +148,9 @@ module Isucon4
 
         memory[:logs].group_by { |l| l[:user_id] }.each do |user_id, logs|
           count = 0
-          logs.reverse.each { |l| l[:succeeded] ? (c += 1) : break }
+          logs.reverse.each { |l| l[:succeeded] ? break : (count += 1) }
 
-          if threshold <= count
-            user_ids << row['login']
-          end
+          user_ids << user_id if threshold <= count
         end
 
         user_ids
