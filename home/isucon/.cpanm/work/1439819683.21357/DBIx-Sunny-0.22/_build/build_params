@@ -1,0 +1,134 @@
+do{ my $x = [
+       {
+         'ARGV' => []
+       },
+       {
+         'installsiteman1dir' => '',
+         'installsiteman3dir' => '',
+         'installman3dir' => '',
+         'installman1dir' => ''
+       },
+       {
+         'requires' => {},
+         'install_path' => {},
+         'conflicts' => {},
+         'extra_manify_args' => undef,
+         'install_sets' => {},
+         'libdoc_dirs' => [
+                            'blib/lib',
+                            'blib/arch'
+                          ],
+         'prefix_relpaths' => {},
+         'verbose' => undef,
+         'use_tap_harness' => 0,
+         'destdir' => undef,
+         'cpan_client' => 'cpan',
+         'allow_pureperl' => 0,
+         'prereq_action_types' => [
+                                    'requires',
+                                    'build_requires',
+                                    'test_requires',
+                                    'conflicts',
+                                    'recommends'
+                                  ],
+         'create_makefile_pl' => undef,
+         'autosplit' => undef,
+         'orig_dir' => '/home/isucon/.cpanm/work/1439819683.21357/DBIx-Sunny-0.22',
+         'dist_abstract' => undef,
+         'sign' => undef,
+         'dist_version' => '0.22',
+         'dist_name' => 'DBIx-Sunny',
+         'create_license' => undef,
+         'tap_harness_args' => {},
+         'prefix' => undef,
+         'installdirs' => 'site',
+         'bundle_inc' => [],
+         'include_dirs' => [],
+         'c_source' => [],
+         'extra_compiler_flags' => [],
+         'pollute' => undef,
+         'magic_number' => undef,
+         'dist_version_from' => 'lib/DBIx/Sunny.pm',
+         'mymetafile' => 'MYMETA.yml',
+         'mymetafile2' => 'MYMETA.json',
+         'build_script' => 'Build',
+         'pm_files' => undef,
+         'dist_author' => undef,
+         'test_files' => 't/',
+         'pureperl_only' => 0,
+         'metafile2' => 'META.json',
+         'install_base_relpaths' => {},
+         'release_status' => 'stable',
+         'has_config_data' => undef,
+         'create_packlist' => 1,
+         'recommends' => {},
+         'script_files' => [],
+         'debugger' => undef,
+         'build_bat' => 0,
+         'blib' => 'blib',
+         'configure_requires' => {
+                                   'Module::Build' => '0.38'
+                                 },
+         'xs_files' => undef,
+         'build_class' => 'MyBuilder',
+         'module_name' => 'DBIx::Sunny',
+         'config_dir' => '_build',
+         'extra_linker_flags' => [],
+         'config' => undef,
+         'recursive_test_files' => 1,
+         'program_name' => undef,
+         'name' => 'DBIx-Sunny',
+         'base_dir' => '/home/isucon/.cpanm/work/1439819683.21357/DBIx-Sunny-0.22',
+         'recurse_into' => [],
+         'install_base' => '/home/isucon/webapp/perl/local',
+         'scripts' => undef,
+         'meta_merge' => {},
+         'license' => 'perl',
+         'build_elements' => [
+                               'PL',
+                               'support',
+                               'pm',
+                               'xs',
+                               'share_dir',
+                               'pod',
+                               'script'
+                             ],
+         'quiet' => undef,
+         'dynamic_config' => 0,
+         'auto_configure_requires' => 1,
+         'debug' => undef,
+         'meta_add' => {},
+         '_have_c_compiler' => 1,
+         'build_requires' => {
+                               'ExtUtils::CBuilder' => 0
+                             },
+         'pod_files' => undef,
+         'mb_version' => '0.421',
+         'test_file_exts' => [
+                               '.t'
+                             ],
+         'bundle_inc_preload' => [],
+         '_added_to_INC' => [
+                              '/home/isucon/.cpanm/work/1439819683.21357/DBIx-Sunny-0.22/_build/lib',
+                              '/home/isucon/webapp/perl/local/lib/perl5/x86_64-linux',
+                              '/home/isucon/webapp/perl/local/lib/perl5'
+                            ],
+         'original_prefix' => {},
+         'create_readme' => undef,
+         'needs_compiler' => 1,
+         'perl' => '/home/isucon/.local/perl/bin/perl',
+         'dist_suffix' => undef,
+         'html_css' => '',
+         'get_options' => {},
+         'share_dir' => undef,
+         'use_rcfile' => 1,
+         'PL_files' => {},
+         'allow_mb_mismatch' => 0,
+         'test_requires' => {},
+         'bindoc_dirs' => [
+                            'blib/script'
+                          ],
+         'metafile' => 'META.yml'
+       }
+     ];
+$x; }

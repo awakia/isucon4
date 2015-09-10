@@ -1,0 +1,136 @@
+do{ my $x = [
+       {
+         'ARGV' => []
+       },
+       {
+         'installsiteman3dir' => '',
+         'installman3dir' => '',
+         'installsiteman1dir' => '',
+         'installman1dir' => ''
+       },
+       {
+         'xs_files' => undef,
+         'mymetafile' => 'MYMETA.yml',
+         'magic_number' => undef,
+         'prereq_action_types' => [
+                                    'requires',
+                                    'build_requires',
+                                    'test_requires',
+                                    'conflicts',
+                                    'recommends'
+                                  ],
+         'destdir' => undef,
+         'script_files' => [],
+         'release_status' => 'stable',
+         'mymetafile2' => 'MYMETA.json',
+         'create_makefile_pl' => undef,
+         'build_bat' => 0,
+         'cpan_client' => 'cpan',
+         'recurse_into' => [],
+         'orig_dir' => '/home/isucon/.cpanm/work/1439819683.21357/HTML-FillInForm-Lite-1.13',
+         'sign' => undef,
+         'install_path' => {},
+         'auto_configure_requires' => 1,
+         'program_name' => undef,
+         'dist_author' => undef,
+         'quiet' => undef,
+         'pollute' => undef,
+         'allow_mb_mismatch' => 0,
+         'requires' => {},
+         'share_dir' => undef,
+         'configure_requires' => {
+                                   'Module::Build' => '0.38'
+                                 },
+         'meta_add' => {},
+         'base_dir' => '/home/isucon/.cpanm/work/1439819683.21357/HTML-FillInForm-Lite-1.13',
+         'get_options' => {},
+         'conflicts' => {},
+         'has_config_data' => undef,
+         'license' => 'perl',
+         'prefix_relpaths' => {},
+         'test_files' => 't/',
+         'allow_pureperl' => 0,
+         'metafile' => 'META.yml',
+         'debug' => undef,
+         'original_prefix' => {},
+         'build_elements' => [
+                               'PL',
+                               'support',
+                               'pm',
+                               'xs',
+                               'share_dir',
+                               'pod',
+                               'script'
+                             ],
+         'build_script' => 'Build',
+         'dynamic_config' => 0,
+         'autosplit' => undef,
+         'include_dirs' => [],
+         'installdirs' => 'site',
+         'install_base_relpaths' => {},
+         'prefix' => undef,
+         'config' => undef,
+         'no_index' => {
+                         'directory' => [
+                                          'inc'
+                                        ]
+                       },
+         'blib' => 'blib',
+         'extra_manify_args' => undef,
+         'name' => 'HTML-FillInForm-Lite',
+         'use_rcfile' => 1,
+         'dist_version_from' => 'lib/HTML/FillInForm/Lite.pm',
+         'libdoc_dirs' => [
+                            'blib/lib',
+                            'blib/arch'
+                          ],
+         'install_base' => '/home/isucon/webapp/perl/local',
+         'test_requires' => {},
+         'recommends' => {},
+         'extra_compiler_flags' => [],
+         'create_license' => undef,
+         'use_tap_harness' => 0,
+         'debugger' => undef,
+         'c_source' => undef,
+         'create_readme' => undef,
+         'pod_files' => undef,
+         'config_dir' => '_build',
+         'perl' => '/home/isucon/.local/perl/bin/perl',
+         '_added_to_INC' => [
+                              '/home/isucon/.cpanm/work/1439819683.21357/HTML-FillInForm-Lite-1.13/_build/lib',
+                              '/home/isucon/webapp/perl/local/lib/perl5/x86_64-linux',
+                              '/home/isucon/webapp/perl/local/lib/perl5'
+                            ],
+         'html_css' => '',
+         'needs_compiler' => '',
+         'dist_abstract' => undef,
+         'dist_version' => '1.13',
+         'bundle_inc' => [],
+         'PL_files' => undef,
+         'pureperl_only' => 0,
+         'create_packlist' => 1,
+         'tap_harness_args' => {},
+         'bundle_inc_preload' => [],
+         'dist_name' => 'HTML-FillInForm-Lite',
+         'install_sets' => {},
+         'bindoc_dirs' => [
+                            'blib/script'
+                          ],
+         'build_requires' => {},
+         'build_class' => 'MyBuilder',
+         'mb_version' => '0.421',
+         'metafile2' => 'META.json',
+         'test_file_exts' => [
+                               '.t'
+                             ],
+         'dist_suffix' => undef,
+         'verbose' => undef,
+         'module_name' => 'HTML::FillInForm::Lite',
+         'extra_linker_flags' => [],
+         'meta_merge' => {},
+         'pm_files' => undef,
+         'recursive_test_files' => 1,
+         'scripts' => undef
+       }
+     ];
+$x; }

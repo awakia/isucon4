@@ -1,0 +1,8 @@
+do{ my $x = {
+       'conflicts' => {},
+       'test_requires' => {},
+       'requires' => {},
+       'recommends' => {},
+       'build_requires' => {}
+     };
+$x; }

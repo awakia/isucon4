@@ -1,0 +1,30 @@
+=== unicorn 4.8.3 - the end of an era / 2014-05-07 07:50 UTC
+
+  This release updates documentation to reflect the migration of the
+  mailing list to a new public-inbox[1] instance.  This is necessary
+  due to the impending RubyForge shutdown on May 15, 2014.
+
+  The public-inbox address is: unicorn-public@bogomips.org
+      (no subscription required, plain text only)
+  ssoma[2] git archives: git://bogomips.org/unicorn-public
+  browser-friendly archives: http://bogomips.org/unicorn-public/
+
+  Using, getting help for, and contributing to unicorn will never
+  require any of the following:
+
+  1) non-Free software (including SaaS)
+  2) registration or sign-in of any kind
+  3) a real identity (we accept mail from Mixmaster)
+  4) a graphical user interface
+
+  Nowadays, plain-text email is the only ubiquitous platform which
+  meets all our requirements for communication.
+
+  There is also one small bugfix to handle premature grandparent death
+  upon initial startup.  Most users are unaffected.
+
+  [1] policy: http://public-inbox.org/ - git://80x24.org/public-inbox
+      an "archives first" approach to mailing lists
+  [2] mechanism: http://ssoma.public-inbox.org/ - git://80x24.org/ssoma
+      some sort of mail archiver (using git)
+

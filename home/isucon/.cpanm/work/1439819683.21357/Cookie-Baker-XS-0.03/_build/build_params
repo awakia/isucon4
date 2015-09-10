@@ -1,0 +1,134 @@
+do{ my $x = [
+       {
+         'ARGV' => []
+       },
+       {
+         'installman1dir' => '',
+         'installman3dir' => '',
+         'installsiteman3dir' => '',
+         'installsiteman1dir' => ''
+       },
+       {
+         'prefix_relpaths' => {},
+         'libdoc_dirs' => [
+                            'blib/lib',
+                            'blib/arch'
+                          ],
+         'scripts' => undef,
+         'prereq_action_types' => [
+                                    'requires',
+                                    'build_requires',
+                                    'test_requires',
+                                    'conflicts',
+                                    'recommends'
+                                  ],
+         'xs_files' => undef,
+         'pm_files' => undef,
+         'extra_compiler_flags' => [],
+         'dist_author' => undef,
+         'share_dir' => undef,
+         'install_base' => '/home/isucon/webapp/perl/local',
+         'test_files' => 't/',
+         'create_makefile_pl' => undef,
+         'create_license' => undef,
+         'recurse_into' => [],
+         'configure_requires' => {
+                                   'Module::Build' => '0.38'
+                                 },
+         'metafile' => 'META.yml',
+         'license' => 'perl',
+         'module_name' => 'Cookie::Baker::XS',
+         'include_dirs' => [],
+         'destdir' => undef,
+         'recommends' => {},
+         'create_readme' => undef,
+         'debugger' => undef,
+         'quiet' => undef,
+         'cpan_client' => 'cpan',
+         'config' => undef,
+         'sign' => undef,
+         'build_elements' => [
+                               'PL',
+                               'support',
+                               'pm',
+                               'xs',
+                               'share_dir',
+                               'pod',
+                               'script'
+                             ],
+         'mymetafile2' => 'MYMETA.json',
+         'build_requires' => {
+                               'ExtUtils::CBuilder' => 0
+                             },
+         'extra_linker_flags' => [],
+         'requires' => {},
+         'debug' => undef,
+         'dist_version_from' => 'lib/Cookie/Baker/XS.pm',
+         'orig_dir' => '/home/isucon/.cpanm/work/1439819683.21357/Cookie-Baker-XS-0.03',
+         'bundle_inc_preload' => [],
+         'blib' => 'blib',
+         'pod_files' => undef,
+         'dist_abstract' => undef,
+         'html_css' => '',
+         'recursive_test_files' => 1,
+         'release_status' => 'stable',
+         'extra_manify_args' => undef,
+         'dist_name' => 'Cookie-Baker-XS',
+         'dynamic_config' => 0,
+         'allow_mb_mismatch' => 0,
+         'install_sets' => {},
+         'pollute' => undef,
+         'install_base_relpaths' => {},
+         'bindoc_dirs' => [
+                            'blib/script'
+                          ],
+         'mymetafile' => 'MYMETA.yml',
+         'original_prefix' => {},
+         'build_class' => 'MyBuilder',
+         'script_files' => [],
+         'base_dir' => '/home/isucon/.cpanm/work/1439819683.21357/Cookie-Baker-XS-0.03',
+         'PL_files' => {},
+         'metafile2' => 'META.json',
+         'installdirs' => 'site',
+         'build_bat' => 0,
+         'c_source' => [],
+         'pureperl_only' => 0,
+         'build_script' => 'Build',
+         'perl' => '/home/isucon/.local/perl/bin/perl',
+         'create_packlist' => 1,
+         'needs_compiler' => 1,
+         'program_name' => undef,
+         'dist_suffix' => undef,
+         'verbose' => undef,
+         'config_dir' => '_build',
+         'get_options' => {},
+         'meta_merge' => {},
+         'test_requires' => {},
+         'name' => 'Cookie-Baker-XS',
+         'autosplit' => undef,
+         'install_path' => {},
+         'test_file_exts' => [
+                               '.t'
+                             ],
+         'allow_pureperl' => 0,
+         'use_tap_harness' => 0,
+         'meta_add' => {},
+         'has_config_data' => undef,
+         '_have_c_compiler' => 1,
+         'conflicts' => {},
+         'auto_configure_requires' => 1,
+         'mb_version' => '0.421',
+         'prefix' => undef,
+         'dist_version' => '0.03',
+         'magic_number' => undef,
+         'tap_harness_args' => {},
+         '_added_to_INC' => [
+                              '/home/isucon/.cpanm/work/1439819683.21357/Cookie-Baker-XS-0.03/_build/lib',
+                              '/home/isucon/webapp/perl/local/lib/perl5/x86_64-linux',
+                              '/home/isucon/webapp/perl/local/lib/perl5'
+                            ],
+         'use_rcfile' => 1,
+         'bundle_inc' => []
+       }
+     ];
+$x; }

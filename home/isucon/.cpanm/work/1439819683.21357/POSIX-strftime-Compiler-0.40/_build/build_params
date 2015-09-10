@@ -1,0 +1,134 @@
+do{ my $x = [
+       {
+         'ARGV' => []
+       },
+       {
+         'installman1dir' => '',
+         'installsiteman3dir' => '',
+         'installman3dir' => '',
+         'installsiteman1dir' => ''
+       },
+       {
+         'scripts' => undef,
+         'pod_files' => undef,
+         'prefix_relpaths' => {},
+         'extra_linker_flags' => [],
+         'quiet' => undef,
+         'test_file_exts' => [
+                               '.t'
+                             ],
+         'autosplit' => undef,
+         'include_dirs' => [],
+         'dynamic_config' => 0,
+         'recurse_into' => [],
+         'bundle_inc_preload' => [],
+         'bindoc_dirs' => [
+                            'blib/script'
+                          ],
+         'base_dir' => '/home/isucon/.cpanm/work/1439819683.21357/POSIX-strftime-Compiler-0.40',
+         'needs_compiler' => 1,
+         'mymetafile' => 'MYMETA.yml',
+         'has_config_data' => undef,
+         'pollute' => undef,
+         'test_files' => 't/',
+         'share_dir' => undef,
+         'original_prefix' => {},
+         'configure_requires' => {
+                                   'Module::Build' => '0.38'
+                                 },
+         'dist_abstract' => undef,
+         'create_packlist' => 1,
+         'get_options' => {},
+         'installdirs' => 'site',
+         'program_name' => undef,
+         'verbose' => undef,
+         'magic_number' => undef,
+         'prereq_action_types' => [
+                                    'requires',
+                                    'build_requires',
+                                    'test_requires',
+                                    'conflicts',
+                                    'recommends'
+                                  ],
+         'release_status' => 'stable',
+         'sign' => undef,
+         'pm_files' => undef,
+         'mb_version' => '0.421',
+         'install_path' => {},
+         'blib' => 'blib',
+         'auto_configure_requires' => 1,
+         'dist_suffix' => undef,
+         'license' => 'perl',
+         'use_rcfile' => 1,
+         'tap_harness_args' => {},
+         'prefix' => undef,
+         'dist_version_from' => 'lib/POSIX/strftime/Compiler.pm',
+         'html_css' => '',
+         'dist_author' => undef,
+         'orig_dir' => '/home/isucon/.cpanm/work/1439819683.21357/POSIX-strftime-Compiler-0.40',
+         'dist_version' => '0.40',
+         'build_elements' => [
+                               'PL',
+                               'support',
+                               'pm',
+                               'xs',
+                               'share_dir',
+                               'pod',
+                               'script'
+                             ],
+         'build_script' => 'Build',
+         'debugger' => undef,
+         'meta_add' => {},
+         'name' => 'POSIX-strftime-Compiler',
+         'destdir' => undef,
+         'create_license' => undef,
+         'config_dir' => '_build',
+         'pureperl_only' => 0,
+         'test_requires' => {},
+         'metafile2' => 'META.json',
+         'install_sets' => {},
+         'create_makefile_pl' => undef,
+         'allow_pureperl' => 0,
+         'conflicts' => {},
+         'xs_files' => undef,
+         'recommends' => {},
+         'config' => undef,
+         '_have_c_compiler' => 1,
+         'build_requires' => {
+                               'ExtUtils::CBuilder' => 0
+                             },
+         'metafile' => 'META.yml',
+         'install_base' => '/home/isucon/webapp/perl/local',
+         'use_tap_harness' => 0,
+         'build_class' => 'MyBuilder',
+         'build_bat' => 0,
+         'libdoc_dirs' => [
+                            'blib/lib',
+                            'blib/arch'
+                          ],
+         'c_source' => [],
+         'cpan_client' => 'cpan',
+         'install_base_relpaths' => {},
+         'mymetafile2' => 'MYMETA.json',
+         'perl' => '/home/isucon/.local/perl/bin/perl',
+         'extra_manify_args' => undef,
+         'allow_mb_mismatch' => 0,
+         'bundle_inc' => [],
+         'recursive_test_files' => 1,
+         '_added_to_INC' => [
+                              '/home/isucon/.cpanm/work/1439819683.21357/POSIX-strftime-Compiler-0.40/_build/lib',
+                              '/home/isucon/webapp/perl/local/lib/perl5/x86_64-linux',
+                              '/home/isucon/webapp/perl/local/lib/perl5'
+                            ],
+         'module_name' => 'POSIX::strftime::Compiler',
+         'meta_merge' => {},
+         'dist_name' => 'POSIX-strftime-Compiler',
+         'debug' => undef,
+         'requires' => {},
+         'PL_files' => {},
+         'script_files' => [],
+         'extra_compiler_flags' => [],
+         'create_readme' => undef
+       }
+     ];
+$x; }

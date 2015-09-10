@@ -1,0 +1,134 @@
+do{ my $x = [
+       {
+         'ARGV' => []
+       },
+       {
+         'installsiteman1dir' => '',
+         'installman3dir' => '',
+         'installsiteman3dir' => '',
+         'installman1dir' => ''
+       },
+       {
+         'sign' => undef,
+         'mymetafile2' => 'MYMETA.json',
+         'dynamic_config' => 0,
+         'build_class' => 'MyBuilder',
+         'create_packlist' => 1,
+         'create_license' => undef,
+         'install_base_relpaths' => {},
+         'extra_compiler_flags' => [],
+         'original_prefix' => {},
+         'allow_pureperl' => 0,
+         'test_requires' => {},
+         'requires' => {},
+         'xs_files' => undef,
+         'use_rcfile' => 1,
+         'dist_version_from' => 'lib/WWW/Form/UrlEncoded/XS.pm',
+         '_have_c_compiler' => 1,
+         'prereq_action_types' => [
+                                    'requires',
+                                    'build_requires',
+                                    'test_requires',
+                                    'conflicts',
+                                    'recommends'
+                                  ],
+         'build_elements' => [
+                               'PL',
+                               'support',
+                               'pm',
+                               'xs',
+                               'share_dir',
+                               'pod',
+                               'script'
+                             ],
+         'metafile' => 'META.yml',
+         'program_name' => undef,
+         'bindoc_dirs' => [
+                            'blib/script'
+                          ],
+         'share_dir' => undef,
+         'dist_abstract' => undef,
+         'recurse_into' => [],
+         'meta_merge' => {},
+         'recursive_test_files' => 1,
+         'cpan_client' => 'cpan',
+         'install_path' => {},
+         'destdir' => undef,
+         'dist_name' => 'WWW-Form-UrlEncoded-XS',
+         'license' => 'perl',
+         'dist_version' => '0.19',
+         'get_options' => {},
+         'dist_author' => undef,
+         'test_file_exts' => [
+                               '.t'
+                             ],
+         'magic_number' => undef,
+         'base_dir' => '/home/isucon/.cpanm/work/1439819683.21357/WWW-Form-UrlEncoded-XS-0.19',
+         'bundle_inc' => [],
+         'extra_manify_args' => undef,
+         'name' => 'WWW-Form-UrlEncoded-XS',
+         'bundle_inc_preload' => [],
+         'script_files' => [],
+         'installdirs' => 'site',
+         'debugger' => undef,
+         'pollute' => undef,
+         'create_makefile_pl' => undef,
+         'pureperl_only' => 0,
+         'quiet' => undef,
+         'has_config_data' => undef,
+         'conflicts' => {},
+         'metafile2' => 'META.json',
+         'needs_compiler' => 1,
+         'module_name' => 'WWW::Form::UrlEncoded::XS',
+         'release_status' => 'stable',
+         'test_files' => 't/',
+         'build_requires' => {
+                               'ExtUtils::CBuilder' => 0
+                             },
+         'verbose' => undef,
+         'debug' => undef,
+         '_added_to_INC' => [
+                              '/home/isucon/.cpanm/work/1439819683.21357/WWW-Form-UrlEncoded-XS-0.19/_build/lib',
+                              '/home/isucon/webapp/perl/local/lib/perl5/x86_64-linux',
+                              '/home/isucon/webapp/perl/local/lib/perl5'
+                            ],
+         'install_base' => '/home/isucon/webapp/perl/local',
+         'PL_files' => {},
+         'create_readme' => undef,
+         'pm_files' => undef,
+         'tap_harness_args' => {},
+         'include_dirs' => [],
+         'build_script' => 'Build',
+         'c_source' => [],
+         'meta_add' => {},
+         'mymetafile' => 'MYMETA.yml',
+         'mb_version' => '0.421',
+         'config' => undef,
+         'dist_suffix' => undef,
+         'prefix_relpaths' => {},
+         'config_dir' => '_build',
+         'orig_dir' => '/home/isucon/.cpanm/work/1439819683.21357/WWW-Form-UrlEncoded-XS-0.19',
+         'install_sets' => {},
+         'blib' => 'blib',
+         'scripts' => undef,
+         'auto_configure_requires' => 1,
+         'autosplit' => undef,
+         'allow_mb_mismatch' => 0,
+         'recommends' => {},
+         'libdoc_dirs' => [
+                            'blib/lib',
+                            'blib/arch'
+                          ],
+         'build_bat' => 0,
+         'use_tap_harness' => 0,
+         'perl' => '/home/isucon/.local/perl/bin/perl',
+         'html_css' => '',
+         'extra_linker_flags' => [],
+         'configure_requires' => {
+                                   'Module::Build' => '0.38'
+                                 },
+         'pod_files' => undef,
+         'prefix' => undef
+       }
+     ];
+$x; }

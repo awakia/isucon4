@@ -1,0 +1,134 @@
+do{ my $x = [
+       {
+         'ARGV' => []
+       },
+       {
+         'installman1dir' => '',
+         'installsiteman1dir' => '',
+         'installman3dir' => '',
+         'installsiteman3dir' => ''
+       },
+       {
+         'mymetafile' => 'MYMETA.yml',
+         'license' => 'perl',
+         'config_dir' => '_build',
+         'module_name' => 'Router::Boom',
+         'extra_linker_flags' => [],
+         'mymetafile2' => 'MYMETA.json',
+         'allow_mb_mismatch' => 0,
+         'has_config_data' => undef,
+         'meta_add' => {},
+         'bindoc_dirs' => [
+                            'blib/script'
+                          ],
+         'dist_author' => undef,
+         'dynamic_config' => 0,
+         'debug' => undef,
+         'recursive_test_files' => 1,
+         'orig_dir' => '/home/isucon/.cpanm/work/1439819683.21357/Router-Boom-1.01',
+         'xs_files' => undef,
+         'installdirs' => 'site',
+         'recommends' => {},
+         'cpan_client' => 'cpan',
+         'create_readme' => undef,
+         'dist_name' => 'Router-Boom',
+         'include_dirs' => [],
+         'install_base' => '/home/isucon/webapp/perl/local',
+         'program_name' => undef,
+         'create_packlist' => 1,
+         'requires' => {},
+         'original_prefix' => {},
+         'meta_merge' => {},
+         'use_rcfile' => 1,
+         'quiet' => undef,
+         'create_makefile_pl' => undef,
+         'share_dir' => undef,
+         'c_source' => [],
+         'debugger' => undef,
+         'allow_pureperl' => 0,
+         'prefix_relpaths' => {},
+         '_have_c_compiler' => 1,
+         'bundle_inc_preload' => [],
+         'build_bat' => 0,
+         'mb_version' => '0.421',
+         'get_options' => {},
+         'build_elements' => [
+                               'PL',
+                               'support',
+                               'pm',
+                               'xs',
+                               'share_dir',
+                               'pod',
+                               'script'
+                             ],
+         'extra_manify_args' => undef,
+         'blib' => 'blib',
+         'extra_compiler_flags' => [],
+         'PL_files' => {},
+         'build_script' => 'Build',
+         'install_path' => {},
+         'pollute' => undef,
+         'pm_files' => undef,
+         'use_tap_harness' => 0,
+         'sign' => undef,
+         'auto_configure_requires' => 1,
+         'prereq_action_types' => [
+                                    'requires',
+                                    'build_requires',
+                                    'test_requires',
+                                    'conflicts',
+                                    'recommends'
+                                  ],
+         'test_file_exts' => [
+                               '.t'
+                             ],
+         'dist_abstract' => undef,
+         'destdir' => undef,
+         'perl' => '/home/isucon/.local/perl/bin/perl',
+         'dist_suffix' => undef,
+         'dist_version' => '1.01',
+         'conflicts' => {},
+         'install_base_relpaths' => {},
+         'release_status' => 'stable',
+         'metafile' => 'META.yml',
+         'autosplit' => undef,
+         'install_sets' => {},
+         'create_license' => undef,
+         '_added_to_INC' => [
+                              '/home/isucon/.cpanm/work/1439819683.21357/Router-Boom-1.01/_build/lib',
+                              '/home/isucon/webapp/perl/local/lib/perl5/x86_64-linux',
+                              '/home/isucon/webapp/perl/local/lib/perl5'
+                            ],
+         'name' => 'Router-Boom',
+         'metafile2' => 'META.json',
+         'prefix' => undef,
+         'verbose' => undef,
+         'pod_files' => undef,
+         'dist_version_from' => 'lib/Router/Boom.pm',
+         'base_dir' => '/home/isucon/.cpanm/work/1439819683.21357/Router-Boom-1.01',
+         'build_requires' => {
+                               'ExtUtils::CBuilder' => 0
+                             },
+         'test_requires' => {},
+         'scripts' => undef,
+         'pureperl_only' => 0,
+         'test_files' => 't/',
+         'needs_compiler' => 1,
+         'build_class' => 'MyBuilder',
+         'html_css' => '',
+         'config' => undef,
+         'tap_harness_args' => {},
+         'libdoc_dirs' => [
+                            'blib/lib',
+                            'blib/arch'
+                          ],
+         'bundle_inc' => [],
+         'magic_number' => undef,
+         'recurse_into' => [],
+         'script_files' => [],
+         'configure_requires' => {
+                                   'Module::Build' => '0.38'
+                                 }
+       }
+     ];
+$x; }

@@ -1,0 +1,134 @@
+do{ my $x = [
+       {
+         'ARGV' => []
+       },
+       {
+         'installsiteman3dir' => '',
+         'installsiteman1dir' => '',
+         'installman1dir' => '',
+         'installman3dir' => ''
+       },
+       {
+         'module_name' => 'Data::Validator',
+         'installdirs' => 'site',
+         'requires' => {},
+         'prereq_action_types' => [
+                                    'requires',
+                                    'build_requires',
+                                    'test_requires',
+                                    'conflicts',
+                                    'recommends'
+                                  ],
+         'metafile2' => 'META.json',
+         'mymetafile2' => 'MYMETA.json',
+         'create_license' => undef,
+         'dist_abstract' => undef,
+         'tap_harness_args' => {},
+         'build_bat' => 0,
+         'extra_compiler_flags' => [],
+         'meta_merge' => {},
+         'use_tap_harness' => 0,
+         'pm_files' => undef,
+         'auto_configure_requires' => 1,
+         'config_dir' => '_build',
+         'sign' => undef,
+         'dist_version' => '1.07',
+         'libdoc_dirs' => [
+                            'blib/lib',
+                            'blib/arch'
+                          ],
+         'xs_files' => undef,
+         'dist_suffix' => undef,
+         'install_base_relpaths' => {},
+         'recursive_test_files' => 1,
+         'bundle_inc_preload' => [],
+         'autosplit' => undef,
+         'debug' => undef,
+         'perl' => '/home/isucon/.local/perl/bin/perl',
+         'share_dir' => undef,
+         'destdir' => undef,
+         'verbose' => undef,
+         'dist_name' => 'Data-Validator',
+         'orig_dir' => '/home/isucon/.cpanm/work/1439819683.21357/Data-Validator-1.07',
+         'html_css' => '',
+         'scripts' => undef,
+         'build_class' => 'MyBuilder',
+         'meta_add' => {},
+         'install_sets' => {},
+         'program_name' => undef,
+         'quiet' => undef,
+         'create_packlist' => 1,
+         'base_dir' => '/home/isucon/.cpanm/work/1439819683.21357/Data-Validator-1.07',
+         'metafile' => 'META.yml',
+         'dist_version_from' => 'lib/Data/Validator.pm',
+         'extra_linker_flags' => [],
+         'magic_number' => undef,
+         'install_base' => '/home/isucon/webapp/perl/local',
+         'recommends' => {},
+         'create_readme' => undef,
+         'has_config_data' => undef,
+         'pureperl_only' => 0,
+         'mb_version' => '0.421',
+         'needs_compiler' => 1,
+         'test_files' => 't/',
+         'c_source' => [],
+         'build_requires' => {
+                               'ExtUtils::CBuilder' => 0
+                             },
+         'PL_files' => {},
+         'pollute' => undef,
+         'prefix' => undef,
+         'bindoc_dirs' => [
+                            'blib/script'
+                          ],
+         'config' => undef,
+         'create_makefile_pl' => undef,
+         'blib' => 'blib',
+         'conflicts' => {},
+         'recurse_into' => [],
+         'use_rcfile' => 1,
+         'original_prefix' => {},
+         'install_path' => {},
+         'release_status' => 'stable',
+         'allow_mb_mismatch' => 0,
+         'build_script' => 'Build',
+         'license' => 'perl',
+         'pod_files' => undef,
+         'allow_pureperl' => 0,
+         'cpan_client' => 'cpan',
+         '_have_c_compiler' => 1,
+         'dist_author' => undef,
+         'test_requires' => {},
+         'name' => 'Data-Validator',
+         'test_file_exts' => [
+                               '.t'
+                             ],
+         'get_options' => {},
+         'build_elements' => [
+                               'PL',
+                               'support',
+                               'pm',
+                               'xs',
+                               'share_dir',
+                               'pod',
+                               'script'
+                             ],
+         'dynamic_config' => 0,
+         'debugger' => undef,
+         'extra_manify_args' => undef,
+         '_added_to_INC' => [
+                              '/home/isucon/.cpanm/work/1439819683.21357/Data-Validator-1.07/_build/lib',
+                              '/home/isucon/webapp/perl/local/lib/perl5/x86_64-linux',
+                              '/home/isucon/webapp/perl/local/lib/perl5'
+                            ],
+         'bundle_inc' => [],
+         'prefix_relpaths' => {},
+         'configure_requires' => {
+                                   'Module::Build' => '0.38'
+                                 },
+         'include_dirs' => [],
+         'script_files' => [],
+         'mymetafile' => 'MYMETA.yml'
+       }
+     ];
+$x; }

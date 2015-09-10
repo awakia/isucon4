@@ -1,0 +1,134 @@
+do{ my $x = [
+       {
+         'ARGV' => []
+       },
+       {
+         'installman1dir' => '',
+         'installsiteman1dir' => '',
+         'installsiteman3dir' => '',
+         'installman3dir' => ''
+       },
+       {
+         'build_bat' => 0,
+         'install_path' => {},
+         '_have_c_compiler' => 1,
+         'create_makefile_pl' => undef,
+         'orig_dir' => '/home/isucon/.cpanm/work/1439819683.21357/Devel-CheckCompiler-0.05',
+         'installdirs' => 'site',
+         'extra_linker_flags' => [],
+         'dist_version' => '0.05',
+         'pod_files' => undef,
+         'debugger' => undef,
+         'verbose' => undef,
+         'original_prefix' => {},
+         'debug' => undef,
+         'recommends' => {},
+         'module_name' => 'Devel::CheckCompiler',
+         'metafile' => 'META.yml',
+         'c_source' => [],
+         'has_config_data' => undef,
+         'metafile2' => 'META.json',
+         'requires' => {},
+         'recurse_into' => [],
+         'dist_author' => undef,
+         'test_files' => 't/',
+         'bindoc_dirs' => [
+                            'blib/script'
+                          ],
+         'mb_version' => '0.421',
+         'PL_files' => {},
+         'auto_configure_requires' => 1,
+         'license' => 'perl',
+         'allow_mb_mismatch' => 0,
+         'dist_version_from' => 'lib/Devel/CheckCompiler.pm',
+         'create_packlist' => 1,
+         'needs_compiler' => 1,
+         'autosplit' => undef,
+         'build_script' => 'Build',
+         'quiet' => undef,
+         'extra_manify_args' => undef,
+         'pureperl_only' => 0,
+         'conflicts' => {},
+         'bundle_inc' => [],
+         'prereq_action_types' => [
+                                    'requires',
+                                    'build_requires',
+                                    'test_requires',
+                                    'conflicts',
+                                    'recommends'
+                                  ],
+         'bundle_inc_preload' => [],
+         'dist_suffix' => undef,
+         'dynamic_config' => 0,
+         'perl' => '/home/isucon/.local/perl/bin/perl',
+         '_added_to_INC' => [
+                              '/home/isucon/.cpanm/work/1439819683.21357/Devel-CheckCompiler-0.05/_build/lib',
+                              '/home/isucon/webapp/perl/local/lib/perl5/x86_64-linux',
+                              '/home/isucon/webapp/perl/local/lib/perl5'
+                            ],
+         'pollute' => undef,
+         'prefix' => undef,
+         'name' => 'Devel-CheckCompiler',
+         'blib' => 'blib',
+         'sign' => undef,
+         'prefix_relpaths' => {},
+         'install_base_relpaths' => {},
+         'use_rcfile' => 1,
+         'tap_harness_args' => {},
+         'allow_pureperl' => 0,
+         'configure_requires' => {
+                                   'Module::Build' => '0.38'
+                                 },
+         'dist_name' => 'Devel-CheckCompiler',
+         'xs_files' => undef,
+         'include_dirs' => [],
+         'html_css' => '',
+         'install_sets' => {},
+         'release_status' => 'stable',
+         'scripts' => undef,
+         'test_file_exts' => [
+                               '.t'
+                             ],
+         'mymetafile' => 'MYMETA.yml',
+         'extra_compiler_flags' => [],
+         'script_files' => [],
+         'get_options' => {},
+         'create_license' => undef,
+         'build_requires' => {
+                               'ExtUtils::CBuilder' => 0
+                             },
+         'program_name' => undef,
+         'build_class' => 'MyBuilder',
+         'base_dir' => '/home/isucon/.cpanm/work/1439819683.21357/Devel-CheckCompiler-0.05',
+         'share_dir' => undef,
+         'meta_merge' => {},
+         'cpan_client' => 'cpan',
+         'install_base' => '/home/isucon/webapp/perl/local',
+         'meta_add' => {},
+         'create_readme' => undef,
+         'config' => undef,
+         'magic_number' => undef,
+         'mymetafile2' => 'MYMETA.json',
+         'dist_abstract' => undef,
+         'libdoc_dirs' => [
+                            'blib/lib',
+                            'blib/arch'
+                          ],
+         'build_elements' => [
+                               'PL',
+                               'support',
+                               'pm',
+                               'xs',
+                               'share_dir',
+                               'pod',
+                               'script'
+                             ],
+         'test_requires' => {},
+         'config_dir' => '_build',
+         'use_tap_harness' => 0,
+         'pm_files' => undef,
+         'destdir' => undef,
+         'recursive_test_files' => 1
+       }
+     ];
+$x; }
