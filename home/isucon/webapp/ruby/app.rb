@@ -1,14 +1,28 @@
 require 'sinatra/base'
 require 'digest/sha2'
-require 'mysql2-cs-bind'
 require 'rack-flash'
 require 'json'
+require 'csv'
+
+def users_from_tsv
+  CSV.read("../../sql/dummy_users.tsv", "r", col_sep: "\t").map do |row|
+    { user_id: row[0],
+      login: row[1],
+      password_hash: Digest::SHA256.hexdigest("#{row[2]}:#{row[3]}"),
+      salt: row[3]
+    }
+  end
+end
 
 module Isucon4
   class App < Sinatra::Base
     use Rack::Session::Cookie, secret: ENV['ISU4_SESSION_SECRET'] || 'shirokane'
     use Rack::Flash
     set :public_folder, File.expand_path('../../public', __FILE__)
+
+    configure do
+      set :memory, { users: users_from_tsv, logs: [] }
+    end
 
     helpers do
       def config
@@ -29,48 +43,64 @@ module Isucon4
         )
       end
 
+      def memory
+        settings.memory
+      end
+
       def calculate_password_hash(password, salt)
         Digest::SHA256.hexdigest "#{password}:#{salt}"
       end
 
       def login_log(succeeded, login, user_id = nil)
-        db.xquery("INSERT INTO login_log" \
-                  " (`created_at`, `user_id`, `login`, `ip`, `succeeded`)" \
-                  " VALUES (?,?,?,?,?)",
-                 Time.now, user_id, login, request.ip, succeeded ? 1 : 0)
+        memory[:logs] << { created_at: Time.now,
+                user_id: user_id,
+                login: login,
+                ip: request.ip,
+                succeeded: succeeded
+        }
       end
 
       def user_locked?(user)
         return nil unless user
-        log = db.xquery("SELECT COUNT(1) AS failures FROM login_log WHERE user_id = ? AND id > IFNULL((select id from login_log where user_id = ? AND succeeded = 1 ORDER BY id DESC LIMIT 1), 0);", user['id'], user['id']).first
+        filtered_logs = memory[:logs].select { |log| log[:user_id] == user[:user_id] }
+        count = 0
+        filtered_logs.reverse.each do |log|
+          break if log[:succeeded]
+          count += 1
+        end
 
-        config[:user_lock_threshold] <= log['failures']
+        config[:user_lock_threshold] <= count
       end
 
       def ip_banned?
-        log = db.xquery("SELECT COUNT(1) AS failures FROM login_log WHERE ip = ? AND id > IFNULL((select id from login_log where ip = ? AND succeeded = 1 ORDER BY id DESC LIMIT 1), 0);", request.ip, request.ip).first
+        filtered_logs = memory[:logs].select { |log| log[:ip] == request.ip }
+        count = 0
+        filtered_logs.reverse.each do |log|
+          break if log[:succeeded]
+          count += 1
+        end
 
-        config[:ip_ban_threshold] <= log['failures']
+        config[:ip_ban_threshold] <= count
       end
 
       def attempt_login(login, password)
-        user = db.xquery('SELECT * FROM users WHERE login = ?', login).first
+        user = memory[:users].find { |u| u[:login] == login }
 
         if ip_banned?
-          login_log(false, login, user ? user['id'] : nil)
+          login_log(false, login, user ? user[:user_id] : nil)
           return [nil, :banned]
         end
 
         if user_locked?(user)
-          login_log(false, login, user['id'])
+          login_log(false, login, user[:user_id])
           return [nil, :locked]
         end
 
-        if user && calculate_password_hash(password, user['salt']) == user['password_hash']
-          login_log(true, login, user['id'])
+        if user && calculate_password_hash(password, user[:salt]) == user[:password_hash]
+          login_log(true, login, user[:user_id])
           [user, nil]
         elsif user
-          login_log(false, login, user['id'])
+          login_log(false, login, user[:user_id])
           [nil, :wrong_password]
         else
           login_log(false, login)
@@ -82,7 +112,7 @@ module Isucon4
         return @current_user if @current_user
         return nil unless session[:user_id]
 
-        @current_user = db.xquery('SELECT * FROM users WHERE id = ?', session[:user_id].to_i).first
+        @current_user = memory[:users].find { |u| u[:user_id].to_i == session[:user_id].to_i }
         unless @current_user
           session[:user_id] = nil
           return nil
@@ -94,24 +124,18 @@ module Isucon4
       def last_login
         return nil unless current_user
 
-        db.xquery('SELECT * FROM login_log WHERE succeeded = 1 AND user_id = ? ORDER BY id DESC LIMIT 2', current_user['id']).each.last
+        memory[:logs].select { |l| (l[:user_id].to_i == current_user[:user_id].to_i) && l[:succeeded] }.last
       end
 
       def banned_ips
         ips = []
         threshold = config[:ip_ban_threshold]
 
-        not_succeeded = db.xquery('SELECT ip FROM (SELECT ip, MAX(succeeded) as max_succeeded, COUNT(1) as cnt FROM login_log GROUP BY ip) AS t0 WHERE t0.max_succeeded = 0 AND t0.cnt >= ?', threshold)
+        memory[:logs].group_by { |l| l[:ip] }.each do |ip, logs|
+          count = 0
+          logs.reverse.each { |l| l[:succeeded] ? break : (count += 1) }
 
-        ips.concat not_succeeded.each.map { |r| r['ip'] }
-
-        last_succeeds = db.xquery('SELECT ip, MAX(id) AS last_login_id FROM login_log WHERE succeeded = 1 GROUP by ip')
-
-        last_succeeds.each do |row|
-          count = db.xquery('SELECT COUNT(1) AS cnt FROM login_log WHERE ip = ? AND ? < id', row['ip'], row['last_login_id']).first['cnt']
-          if threshold <= count
-            ips << row['ip']
-          end
+          ips << ip if threshold <= count
         end
 
         ips
@@ -121,17 +145,11 @@ module Isucon4
         user_ids = []
         threshold = config[:user_lock_threshold]
 
-        not_succeeded = db.xquery('SELECT user_id, login FROM (SELECT user_id, login, MAX(succeeded) as max_succeeded, COUNT(1) as cnt FROM login_log GROUP BY user_id) AS t0 WHERE t0.user_id IS NOT NULL AND t0.max_succeeded = 0 AND t0.cnt >= ?', threshold)
+        memory[:logs].group_by { |l| l[:user_id] }.each do |user_id, logs|
+          count = 0
+          logs.reverse.each { |l| l[:succeeded] ? break : (count += 1) }
 
-        user_ids.concat not_succeeded.each.map { |r| r['login'] }
-
-        last_succeeds = db.xquery('SELECT user_id, login, MAX(id) AS last_login_id FROM login_log WHERE user_id IS NOT NULL AND succeeded = 1 GROUP BY user_id')
-
-        last_succeeds.each do |row|
-          count = db.xquery('SELECT COUNT(1) AS cnt FROM login_log WHERE user_id = ? AND ? < id', row['user_id'], row['last_login_id']).first['cnt']
-          if threshold <= count
-            user_ids << row['login']
-          end
+          user_ids << user_id if threshold <= count
         end
 
         user_ids
@@ -144,8 +162,9 @@ module Isucon4
 
     post '/login' do
       user, err = attempt_login(params[:login], params[:password])
+
       if user
-        session[:user_id] = user['id']
+        session[:user_id] = user[:user_id]
         redirect '/mypage'
       else
         case err
