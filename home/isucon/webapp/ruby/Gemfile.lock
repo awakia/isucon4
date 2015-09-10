@@ -13,9 +13,6 @@ GEM
       thor (~> 0.19.1)
     kgio (2.9.2)
     method_source (0.8.2)
-    mysql2 (0.3.16)
-    mysql2-cs-bind (0.0.6)
-      mysql2
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -46,7 +43,6 @@ PLATFORMS
 
 DEPENDENCIES
   foreman
-  mysql2-cs-bind
   pry-byebug
   rack-flash3
   sinatra
