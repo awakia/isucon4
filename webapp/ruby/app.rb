@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require "sinatra/reloader"
 require 'digest/sha2'
 require 'mysql2-cs-bind'
 require 'rack-flash'
@@ -9,6 +10,10 @@ module Isucon4
     use Rack::Session::Cookie, secret: ENV['ISU4_SESSION_SECRET'] || 'shirokane'
     use Rack::Flash
     set :public_folder, File.expand_path('../../public', __FILE__)
+
+    configure :development do
+      register Sinatra::Reloader
+    end
 
     helpers do
       def config
