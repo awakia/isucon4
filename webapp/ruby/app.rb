@@ -21,6 +21,10 @@ module Isucon4
     use Rack::Flash
     set :public_folder, File.expand_path('../../public', __FILE__)
 
+    configure do
+      set :memory, { users: users_from_tsv, logs: [] }
+    end
+
     helpers do
       def config
         @config ||= {
@@ -38,6 +42,10 @@ module Isucon4
           database: ENV['ISU4_DB_NAME'] || 'isu4_qualifier',
           reconnect: true,
         )
+      end
+
+      def memory
+        settings.memory
       end
 
       def calculate_password_hash(password, salt)
