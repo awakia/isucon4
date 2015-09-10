@@ -5,5 +5,3 @@ gem "sinatra"
 gem "rack-flash3"
 gem "unicorn"
 gem "foreman"
-
-gem "pry-byebug"

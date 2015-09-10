@@ -1,4 +1,3 @@
-require 'pry-byebug'
 require 'sinatra/base'
 require 'digest/sha2'
 require 'rack-flash'
