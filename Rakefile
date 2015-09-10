@@ -18,7 +18,7 @@ end
 namespace :web do
   desc "Upload web files"
   task "upload" do
-    sh "rsync -avz webapp/#{language}/ #{ssh_profile}:/home/isucon/webapp/#{language}"
+    sh "scp -r webapp/#{language} #{ssh_profile}:/home/isucon/webapp"
   end
 
   desc "Restart web"
@@ -31,7 +31,7 @@ end
 namespace :nginx do
   desc "Upload nginx.conf"
   task "upload" do
-    sh "rsync -avz config/etc/nginx/nginx.conf #{ssh_profile}:/etc/nginx/nginx.conf"
+    sh "scp config/etc/nginx/nginx.conf #{ssh_profile}:/etc/nginx/nginx.conf"
   end
 
   desc "Restart nginx"
@@ -44,7 +44,7 @@ end
 namespace :mysql do
   desc "Upload my.cnf"
   task "upload" do
-    sh "rsync -avz config/etc/my.cnf #{ssh_profile}:/etc/my.cnf"
+    sh "scp config/etc/my.cnf #{ssh_profile}:/etc/my.cnf"
   end
 
   desc "Restart MySQL"
@@ -57,7 +57,7 @@ end
 namespace :redis do
   desc "Upload redis.conf"
   task "upload" do
-    sh "rsync -avz config/etc/redis.conf #{ssh_profile}:/etc/redis.conf"
+    sh "scp config/etc/redis.conf #{ssh_profile}:/etc/redis.conf"
   end
 
   desc "Restart Redis"
