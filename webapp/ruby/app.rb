@@ -53,10 +53,12 @@ module Isucon4
       end
 
       def login_log(succeeded, login, user_id = nil)
-        db.xquery("INSERT INTO login_log" \
-                  " (`created_at`, `user_id`, `login`, `ip`, `succeeded`)" \
-                  " VALUES (?,?,?,?,?)",
-                 Time.now, user_id, login, request.ip, succeeded ? 1 : 0)
+        memory[:logs] << { created_at: Time.now,
+                user_id: user_id,
+                login: login,
+                ip: request.ip,
+                succeeded: succeeded
+        }
       end
 
       def user_locked?(user)
