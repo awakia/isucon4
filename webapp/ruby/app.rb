@@ -85,23 +85,23 @@ module Isucon4
       end
 
       def attempt_login(login, password)
-        user = db.xquery('SELECT * FROM users WHERE login = ?', login).first
+        user = memory[:users].find { |u| u[:login] == login }
 
         if ip_banned?
-          login_log(false, login, user ? user['id'] : nil)
+          login_log(false, login, user ? user[:user_id] : nil)
           return [nil, :banned]
         end
 
         if user_locked?(user)
-          login_log(false, login, user['id'])
+          login_log(false, login, user[:user_id])
           return [nil, :locked]
         end
 
-        if user && calculate_password_hash(password, user['salt']) == user['password_hash']
-          login_log(true, login, user['id'])
+        if user && calculate_password_hash(password, user[:salt]) == user[:password_hash]
+          login_log(true, login, user[:user_id])
           [user, nil]
         elsif user
-          login_log(false, login, user['id'])
+          login_log(false, login, user[:user_id])
           [nil, :wrong_password]
         else
           login_log(false, login)
@@ -113,7 +113,7 @@ module Isucon4
         return @current_user if @current_user
         return nil unless session[:user_id]
 
-        @current_user = db.xquery('SELECT * FROM users WHERE id = ?', session[:user_id].to_i).first
+        @current_user = memory[:users].find { |u| u[:user_id].to_i == session[:user_id].to_i }
         unless @current_user
           session[:user_id] = nil
           return nil
